@@ -1,0 +1,61 @@
+*:focus {
+    outline: none;
+}
+body, .well{
+    background: rgb(136, 109, 109, 1)
+}
+
+.notes, .information{
+    width: 100%;
+}
+h2{
+    font-size: 1.5rem;
+}
+li{
+    list-style: none;
+}
+ul{
+    padding-left: 0;
+}
+button, .btn-sm{
+    border: none;
+    height: 33px;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border-color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+button:hover{
+    color: red;
+}
+input{
+    
+    height: 26px;
+    border-color: rgb(60, 60, 150);
+    background-color: transparent;
+    border-bottom: 2px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+input,button:hover{
+    color: white;
+}
+.message{
+    color: white;
+}
+
+.well{
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 1px white;;
+    border-top: none;
+    border-radius: 0px;
+    
+}
+.fas{
+    color: white;
+}
