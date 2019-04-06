@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
@@ -18,5 +19,71 @@
     <section class="box"></section>
 
     <script src="main.js"></script>
+=======
+    <title>21 Savage Fan Site</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1><span class="fas fa-feather-alt"></span> </h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+        <h2>Add a Note</h2>
+        <% if (user.local.email) { %>
+          <form action="/notes" method="POST">
+            <input type="text" placeholder="message" name="msg">
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <% } %>
+
+        <div class="col-sm-6 notes">
+            <h3>Notes</h3>
+            <ul class="messages">
+            <% for(var i=0; i<notes.length; i++) {%>
+              <li class="message">
+                <span><%= notes[i].msg %></span>
+                <span><%= notes[i].thumbUp %></span>
+                <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
+                <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+              </li>
+            <% } %>
+            </ul>
+
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-6 information">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> Local</h3>
+
+                <% if (user.local.email) { %>
+                    <p>
+                        <strong>id</strong>: <%= user._id %><br>
+                        <strong>email</strong>: <%= user.local.email %><br>
+                        <strong>password</strong>: <%= user.local.password %>
+                    </p>
+
+                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
+                <% } else { %>
+                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                <% } %>
+
+            </div>
+        </div>
+        
+
+</div>
+
+<script src="main.js"></script>
+
+>>>>>>> e31e64d5eb37968faa5c0ddcc3a04a0439b5313b
 </body>
 </html>
