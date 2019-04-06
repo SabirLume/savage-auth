@@ -1,61 +1,32 @@
-*:focus {
-    outline: none;
+body{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    background: black;
 }
-body, .well{
-    background: rgb(136, 109, 109, 1)
-}
-
-.notes, .information{
-    width: 100%;
+section{
+    float: left;
 }
 h2{
-    font-size: 1.5rem;
+    clear: both;
+    padding: 50px 0px;
+    margin: 0;
 }
-li{
-    list-style: none;
+.topSection{
+    width: 100%;
+    height: 10rem;
+    border: 1px solid white;
+    border-radius: 10px;
+    background: rgb(79, 79, 214)
 }
-ul{
-    padding-left: 0;
-}
-button, .btn-sm{
-    border: none;
-    height: 33px;
-    background-color: Transparent;
-    background-repeat:no-repeat;
-    border-color: rgb(0, 0, 0);
-    color: rgb(0, 0, 0);
-    cursor:pointer;
-    overflow: hidden;
-    outline:none;
-}
-button:hover{
-    color: red;
-}
-input{
-    
-    height: 26px;
-    border-color: rgb(60, 60, 150);
-    background-color: transparent;
-    border-bottom: 2px solid black;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-}
-input,button:hover{
-    color: white;
-}
-.message{
-    color: white;
-}
+.box{
+    margin: 1%;
+    width: 47%;
+    height: 20rem;
+    border: 1px solid white;
+    border-radius: 10px;
+    background: rgb(79, 79, 214);
+    padding: 1px;
 
-.well{
-    border-left: none;
-    border-right: none;
-    border-bottom: solid 1px white;;
-    border-top: none;
-    border-radius: 0px;
-    
-}
-.fas{
-    color: white;
 }
