@@ -8,12 +8,12 @@
     });
 
     // PROFILE SECTION =========================
-    app.get('/profile', isLoggedIn, function(req, res) {
-        db.collection('notes').find().toArray((err, result) => {
+    app.get('/notesPage', isLoggedIn, function(req, res) {
+        db.collection('documents').find().toArray((err, result) => {
           if (err) return console.log(err)
-          res.render('profile.ejs', {
+          res.render('notesPage.ejs', {
             user : req.user,
-            notes: result
+            translation: result
           })
         })
     });
@@ -25,21 +25,21 @@
     });
 
 // message board routes ===============================================================
-
-    app.post('/notes', (req, res) => {
-      db.collection('notes').save({msg: req.body.msg, thumbUp: 0}, (err, result) => {
+    //OCR software is suppose to output text into words. These words should be saved to database
+    app.post('/translation', (req, res) => {
+      db.collection('documents').save({ text: req.body.text}, (err, result) => {
        console.log(req.body)
         if (err) return console.log(err)
         console.log('saved to database')
         res.redirect('/profile')
       })
     })
-
-    app.put('/notes', (req, res) => {
-      db.collection('notes')
-      .findOneAndUpdate({msg: req.body.msg}, {
+    //able to edit text that was translated by the OCR software
+    app.put('/translation', (req, res) => {
+      db.collection('documents')
+      .findOneAndUpdate({ text: req.body.text}, {
         $set: {
-          thumbUp:req.body.thumbUp +1
+          translation:req.body.translation
         }
       }, {
         sort: {_id: -1},
@@ -49,9 +49,9 @@
         res.send(result)
       })
     })
-
-    app.delete('/notes', (req, res) => {
-      db.collection('notes').findOneAndDelete({msg: req.body.msg}, (err, result) => {
+    //delete the translations from your account.
+    app.delete('/translation', (req, res) => {
+      db.collection('documents').findOneAndDelete({ text: req.body.text}, (err, result) => {
         if (err) return res.send(500, err)
         res.send('Message deleted!')
       })
@@ -70,7 +70,7 @@
 
         // process the login form
         app.post('/login', passport.authenticate('local-login', {
-            successRedirect : '/profile', // redirect to the secure profile section
+            successRedirect : '/notesPage', // redirect to the secure profile section
             failureRedirect : '/login', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));
@@ -83,7 +83,7 @@
 
         // process the signup form
         app.post('/signup', passport.authenticate('local-signup', {
-            successRedirect : '/profile', // redirect to the secure profile section
+            successRedirect : '/notesPage', // redirect to the secure profile section
             failureRedirect : '/signup', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));

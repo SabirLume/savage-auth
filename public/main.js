@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 var thumbUp = document.getElementsByClassName("fa-thumbs-up");
 var trash = document.getElementsByClassName("fa-trash");
 
@@ -40,3 +42,4 @@ Array.from(trash).forEach(function(element) {
   });
 });
 
+>>>>>>> e31e64d5eb37968faa5c0ddcc3a04a0439b5313b
